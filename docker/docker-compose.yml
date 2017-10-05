@@ -10,8 +10,9 @@ services:
         MYSQL_ROOT_PASSWORD: root
         MYSQL_USER: admin
         MYSQL_PASSWORD: admin123
+        MYSQL_DATABASE: wordpress
     volumes:
-        - database_data:/var/lib/mysql
+        - wordpress_data:/var/lib/mysql
     expose:
         - 3306
 
@@ -23,6 +24,21 @@ services:
     ports:
       - "8080:80"
 
+  #wordpress
+  wordpress:
+    depends_on:
+      - mariadb
+    image: wordpress:latest
+    working_dir: /var/www/html/
+    volumes:
+      - ../wordpress/:/var/www/html/
+    environment:
+        WORDPRESS_DB_HOST: mariadb:3306
+        WORDPRESS_DB_USER: admin
+        WORDPRESS_DB_PASSWORD: admin123
+    ports:
+      - "80:80"
+
 # store database
 volumes:
-    database_data:
+    wordpress_data:
