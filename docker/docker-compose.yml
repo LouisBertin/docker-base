@@ -28,7 +28,7 @@ services:
   wordpress:
     depends_on:
       - mariadb
-    image: wordpress:latest
+    build: ./
     working_dir: /var/www/html/
     volumes:
       - ../wordpress/:/var/www/html/
@@ -38,6 +38,15 @@ services:
         WORDPRESS_DB_PASSWORD: admin123
     ports:
       - "80:80"
+    links:
+      - mailhog
+
+  #mailcatcher
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+        - 1025:1025
+        - 8025:8025
 
 # store database
 volumes:
