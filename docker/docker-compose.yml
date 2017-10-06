@@ -1,11 +1,11 @@
 version: "3"
 services:
-    myApp:
-        container_name: myApp
+    myapp:
+        container_name: myapp
         build: ./
         ports:
             - 80:80
         volumes:
-            - ../:/var/www/myApp
+            - .././:/var/www/myapp
 
 
