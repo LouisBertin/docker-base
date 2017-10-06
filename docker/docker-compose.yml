@@ -1,19 +1,11 @@
 version: "3"
 services:
-    equimetre:
-        container_name: equimetre
+    myApp:
+        container_name: myApp
         build: ./
         ports:
             - 80:80
         volumes:
-#            - /srv/http/Equiapi:/var/www/Equiapi:rw
-#            - /srv/http/Equimetre:/var/www/Equimetre:rw
-#
-#            - ./apache2/httpd.conf:/etc/apache2/httpd.conf
-#            - ./apache2/conf.d:/etc/apache2/conf.d
-#            - ./apache2/sites.d:/etc/apache2/sites.d
-            - ../:/var/www/equimetre
-#            - ./conf:/etc/apache2
-#            - ./conf/php7:/etc/php7
+            - ../:/var/www/myApp
 
 
