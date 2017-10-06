@@ -3,7 +3,7 @@ FROM alpine:3.6
 MAINTAINER Franck Diomandé "fkdiomande@gmail.com"
 
 ARG APPLICATION_NAME=myapp
-ARG SERVER_NAME=dev.toto.fr
+ARG SERVER_NAME=dev.myapp.fr
 ARG SERVER_TYPE=apache2
 ARG PHP_VERSION=7
 ARG PHP_MODULES="php7-apache2 php7-redis php7-memcached"
